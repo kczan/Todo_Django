@@ -6,4 +6,13 @@
 
 {% block content %}
 <h1> LIST PAGE </h1>
+<form method="POST", action="#"> {% csrf_token %}
+    {{ form.title }}
+    <input type="submit", name="Create task">
+</form>
+<ul>
+    {% for task in tasks %}
+    <li>{{ forloop.counter }}. {{ task }}</li>
+    {% endfor %}
+</ul>
 {% endblock content%}
