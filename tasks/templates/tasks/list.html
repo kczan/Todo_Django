@@ -1,8 +1,6 @@
 
 {% extends 'tasks/base.html' %} 
-{% block title %}
-{{ page_title }}
-{% endblock title %}
+
 
 {% block content %}
 <h1> LIST PAGE </h1>
@@ -10,9 +8,16 @@
     {{ form.title }}
     <input type="submit", name="Create task">
 </form>
-<ul>
     {% for task in tasks %}
-    <li>{{ forloop.counter }}. {{ task }}</li>
+    <div>
+    <span>{{ forloop.counter }}. 
+        {% if task.completed == True %}
+        <s>{{ task }} </s>
+        {% else %}
+        {{ task }}
+        {% endif %}
+        
+        <a href="/list/update_task/{{ task.id }}">Update</a> <a href="/list/delete_task/{{ task.id }}">Delete</a></span>
+        </div>
     {% endfor %}
-</ul>
-{% endblock content%}
+{% endblock content %}

@@ -25,3 +25,32 @@ def list_homepage(request):
     return render(request, 'tasks/list.html', context)
 
 
+def update_task(request, pk):
+    task = Task.objects.get(id=pk)
+
+    form = TaskForm(instance=task)
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+    context = {
+        'form': form,
+        'page_title': 'Update task',
+    }
+    return render(request, 'tasks/update_task.html', context)
+
+
+def delete_task(request, pk):
+    task = Task.objects.get(id=pk)
+
+    if request.method == 'POST':
+        task.delete()
+        return redirect('/list')
+
+    context = {
+        'page_title': 'Delete task',
+        'task': task,
+    }
+
+    return render(request, 'tasks/delete_task.html', context)
