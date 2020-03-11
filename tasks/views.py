@@ -18,7 +18,7 @@ def list_homepage(request):
         return redirect('/list/home')
 
     context = {
-        'page_title': 'Home page _',
+        'page_title': 'Todo list',
         'tasks': tasks,
         'form': form,
     }

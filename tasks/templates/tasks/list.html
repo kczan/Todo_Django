@@ -4,20 +4,27 @@
 
 {% block content %}
 <h1> LIST PAGE </h1>
-<form method="POST", action="#"> {% csrf_token %}
-    {{ form.title }}
-    <input type="submit", name="Create task">
-</form>
-    {% for task in tasks %}
-    <div>
-    <span>{{ forloop.counter }}. 
-        {% if task.completed == True %}
-        <s>{{ task }} </s>
-        {% else %}
-        {{ task }}
-        {% endif %}
-        
-        <a href="/list/update_task/{{ task.id }}">Update</a> <a href="/list/delete_task/{{ task.id }}">Delete</a></span>
-        </div>
-    {% endfor %}
+<div class="center-column">
+    <form method="POST", action="#"> {% csrf_token %}
+        {{ form.title }}
+        <input class="submit" type="submit", name="Create task">
+    </form>
+</div>
+
+
+{% for task in tasks %}
+<div class="center-column">
+    <div class="item-row">
+        <span class="task">{{ forloop.counter }}. 
+            {% if task.completed == True %}
+            <s>{{ task }} </s>
+            {% else %}
+            <span>{{ task }}</span>
+            {% endif %}
+            
+            <a href="/list/update_task/{{ task.id }}">Update</a> <a href="/list/delete_task/{{ task.id }}">Delete</a>
+        </span>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}

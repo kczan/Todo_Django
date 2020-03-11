@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 body{
-		background-color: #638CB8;
+		background-color: #A49694;
+		font-family: 'Raleway', sans-serif;
+		align-items: center;
 	}
 
 	input{
@@ -12,11 +14,14 @@ body{
 	}
 
 	input::placeholder {
-	  color: #d3d3d3;
+		color: #d3d3d3;
 	}
 
 	.submit{
 		background-color: #6BA3E8;
+		margin-top: 20px;
+		width: 10vw;
+		
 	}
 
 	.center-column{
@@ -26,29 +31,37 @@ body{
 		background-color: #fff;
 		border-radius: 3px;
 		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+		align-items: center;
+		text-align: center;
 	}
 
 	.item-row{
-		background-color: #906abd;
+		color: black;
+		background-color: #7ce8fc;
 		margin: 10px;
 		padding: 20px;
 		border-radius: 3px;
 		color: #fff;
 		font-size: 16px;
 		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+		border-radius: 15%;
 	}
 
-	.btn-danger{
-		background-color: #ffae19;
-		border-color: #e59400;
-  }
-  
-  h1 {
+  h1{
     font-family: 'Raleway', sans-serif;
-
+		/* text-decoration: line-through; */
+		color: red;
+		font-size: 4rem;
   }
 
-  a {
-        font-family: 'Raleway', sans-serif;
-  }
-  
+.task{
+	color: black;
+}
+
+.new_task_text{
+	border: 2px solid #3498db;
+	border-radius: 24px;
+	width: 10vw;
+	display: block;
+	text-align: inherit;
+}
