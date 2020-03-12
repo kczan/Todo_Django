@@ -1,9 +1,12 @@
 {% extends 'tasks/base.html' %} 
 
 {% block content %}
-<form method="POST"> {% csrf_token %}
-  {{ form }}
-  <input type="submit" name="Update item">
-</form>
-
+<div class="new-task-column">
+  <form method="POST"> {% csrf_token %}
+    <span class="update-task-layout">
+      {{ form.as_table }}
+      <input class="submit" type="submit" name="Update item">
+    </span>
+  </form>
+</div>
 {% endblock content %}

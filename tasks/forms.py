@@ -7,5 +7,5 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = '__all__'
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'new_task_text'}),
+            'title': forms.TextInput(attrs={'class': 'new_task_text', 'placeholder': 'Add new task'}),
         }

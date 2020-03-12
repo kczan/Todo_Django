@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=35)
     completed = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
 
