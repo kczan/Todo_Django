@@ -25,7 +25,7 @@ SECRET_KEY = '7mn9!wgg^k0@h6*dzgjgsr%gwuh*(2++y3n)qz68-5d@7t2o8&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kczan.pythonanywhere.com']
+ALLOWED_HOSTS = ['kczan.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -124,8 +124,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "/tasks/static/tasks"),
-    os.path.join(BASE_DIR, "/users/static/users"),
+    os.path.join(BASE_DIR, "/tasks/static/tasks/"),
+    os.path.join(BASE_DIR, "/users/static/users/"),
 ]
 
 STATIC_ROOT = '/home/kczan/Todo_Django/static'

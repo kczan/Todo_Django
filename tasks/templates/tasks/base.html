@@ -14,7 +14,7 @@
 </head>
 <body>
   <header class='navbar'>
-    <img class='logo' src="{% static 'images/websitelogo.png' %}" alt="">
+    <a href="{% url 'home' %}"><img class='logo' src="{% static 'images/websitelogo.png' %}" alt=""></a>
         <div class='sites_section'>
           <ul class='nav-links'>
             <li><a href="{% url 'list' %}">Todo List</a></li>
