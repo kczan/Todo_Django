@@ -128,6 +128,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "/users/static/users"),
 ]
 
+STATIC_ROOT = '/home/kczan/Todo_Django/static'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'list'
