@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'tasks'
+    'tasks',
+    'users',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -124,4 +125,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "/tasks/static/tasks"),
+    os.path.join(BASE_DIR, "/users/static/users"),
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'list'
+
+LOGIN_URL = 'login'

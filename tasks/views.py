@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import *
+
 from .forms import *
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def list_homepage(request):
     tasks = Task.objects.all()
 
@@ -25,6 +25,7 @@ def list_homepage(request):
     return render(request, 'tasks/list.html', context)
 
 
+@login_required
 def update_task(request, pk):
     task = Task.objects.get(id=pk)
     form = TaskForm(instance=task)
@@ -41,6 +42,7 @@ def update_task(request, pk):
     return render(request, 'tasks/update_task.html', context)
 
 
+@login_required
 def delete_task(request, pk):
     task = Task.objects.get(id=pk)
 

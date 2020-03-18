@@ -1,0 +1,23 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class='task-column'>
+  <div class="register-container">
+    <form method="POST"> {% csrf_token %}
+      {{ user_form|crispy }}
+      <div class="pass_tooltip">&#9072;
+        <span class="tooltiptext">{{ password1_help }}</span>
+      </div>
+      <input type="submit" class="submit" value="Register">
+      <div class='border-top pt-3'>
+        <small class='text-muted'>
+          Already have an account? <a class='ml-2' href="{% url 'login' %}">Sign in</a>
+        </small>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
