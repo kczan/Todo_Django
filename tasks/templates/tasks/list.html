@@ -12,22 +12,24 @@
 
 <div class="task-column">
 {% for task in tasks %}
-
-    <div class="item-row">
-        <div class="task">{{ forloop.counter }}. 
-            {% if task.completed == True %}
-            <s>{{ task }} </s>
-            {% else %}
-            {{ task }}
-            {% endif %}
+    {% if task.author == username %}    
+        <div class="item-row">
+            
+            <div class="task"> 
+                    {% if task.completed == True %}
+                        <s>{{ task }} </s>
+                    {% else %}
+                        {{ task }}
+                    {% endif %}
+                
+            </div>
+            
+            <div class="del_upd_container">
+                <div class="single-upd-container"><a class="edit_button" href="/list/update_task/{{ task.id }}">Update</a></div>
+                <div class="single-del-container"><a class="edit_button" href="/list/delete_task/{{ task.id }}">Delete</a></div>
+            </div>
         </div>
-        <div class="del_upd_container">
-            <div class="single-upd-container"><a class="edit_button" href="/list/update_task/{{ task.id }}">Update</a></div>
-            <div class="single-del-container"><a class="edit_button" href="/list/delete_task/{{ task.id }}">Delete</a></div>
-        </div>
-        
-    </div>
-
+    {% endif %} 
 {% endfor %}
 </div>
 {% endblock content %}
