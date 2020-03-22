@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tasks',
-    'users',
+    'tasks.apps.TasksConfig',
+    'users.apps.UsersConfig',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = '/home/kczan/Todo_Django/static'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

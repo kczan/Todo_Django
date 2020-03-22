@@ -12,7 +12,6 @@
 
 <div class="task-column">
 {% for task in tasks %}
-    {% if task.author == username %}    
         <div class="item-row">
             
             <div class="task"> 
@@ -29,7 +28,6 @@
                 <div class="single-del-container"><a class="edit_button" href="/list/delete_task/{{ task.id }}">Delete</a></div>
             </div>
         </div>
-    {% endif %} 
 {% endfor %}
 </div>
 {% endblock content %}

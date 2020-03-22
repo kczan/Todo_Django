@@ -3,5 +3,17 @@
 
 
 {% block content %}
-{{ user.username }}
+
+
+<div class="content-section">
+  <div class="media">
+    <img class="profile-picture" src="{{ user.profile.image.url }}" alt="">
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username|title }}</h2>
+      <p class="text-secondary">{{ user.email }}</p>
+    </div>
+  </div>
+</div>
+
+
 {% endblock content %}

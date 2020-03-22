@@ -6,10 +6,11 @@
   <div>
     <span>
       <form method="POST"> {% csrf_token %}
-        <input class="submit" type="submit" value="Yes">
+        <div class="del_upd_container">
+                <input class="single-upd-container" type="submit" value="Yes">
+                <a class="single-del-container" href="{% url 'list' %}">No</a>
+            </div>
       </form>
-      <a class="submit" href="{% url 'list' %}">No</a>
-
     </span>
   </div>
 </div>

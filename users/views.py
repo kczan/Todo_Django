@@ -30,7 +30,9 @@ def register_user(request):
 
 @login_required
 def user_profile(request):
+    user = request.user
     context = {
-        'page_title': 'User profile'
+        'page_title': 'User profile',
+        'user': user,
     }
     return render(request, 'users/profile.html', context)

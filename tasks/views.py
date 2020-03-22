@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def list_homepage(request):
-    tasks = Task.objects.all()
+    tasks = Task.objects.filter(author=request.user.username)
 
     for task in tasks:
         if "['" and "']" in task.title:
@@ -15,23 +15,15 @@ def list_homepage(request):
     if request.method == 'POST':
         form = TaskForm({**request.POST, **{'author': request.user.username}})
         if form.is_valid():
-            form.clean()
-            # form = form.cleaned_data
             form.save()
-            print(form.cleaned_data)
         else:
             print(form.errors)
         return redirect('/list/home')
-
-    username = None
-    if request.user.is_authenticated:
-        username = request.user.username
 
     context = {
         'page_title': 'Todo list',
         'tasks': tasks,
         'form': form,
-        'username': username,
     }
     return render(request, 'tasks/list.html', context)
 

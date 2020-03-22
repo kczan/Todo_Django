@@ -5,6 +5,9 @@ body{
 	font-family: 'Raleway', sans-serif;
 	align-items: center;
 }
+.a{
+	text-decoration: none;
+}
 
 input{
 	width: 100%;
@@ -196,7 +199,6 @@ header.navbar{
 	padding: 10px 2%;
 	background-color: #F9DEC9;
 	justify-content: flex-start;
-	/* justify-content: space-between; */
 }
 
 .nav-links{
@@ -276,4 +278,24 @@ header.navbar{
 
 .pass_tooltip:hover .tooltiptext {
 	visibility: visible;
+}
+
+.profile-picture {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content-section {
+	width:30vw;
+	margin: 20px auto;
+	padding:20px;
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	align-items: center;
+	text-align: center;
+	overflow: hidden;
 }
