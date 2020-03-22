@@ -15,5 +15,12 @@
   </div>
 </div>
 
+<div class="content-section">
+  <form method="POST", enctype="multipart/form-data">{% csrf_token %}
+    {{ user_form|crispy }}
+    {{ prof_form|crispy }}
+    <input class="submit" type="submit" name="Update user info">
+  </form>
+</div>
 
 {% endblock content %}
