@@ -9,6 +9,11 @@
       {{ form|crispy }}
       <div id='password-help'>{{ password1_help }}</div>
       <input type="submit" class="submit" value="Log In">
+      <div>
+        <small class='text-muted'>
+          Forgot password? <a class='ml-2' href="{% url 'password_reset' %}">Reset Password</a>
+        </small>
+      </div>
       <div class='border-top pt-3'>
         <small class='text-muted'>
           Don't have an account yet? <a class='ml-2' href="{% url 'register' %}">Register</a>
