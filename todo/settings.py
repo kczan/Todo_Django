@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'tasks.apps.TasksConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
-    'rest_framework',
+    # 'rest_framework',
 ]
 
 MIDDLEWARE = [
