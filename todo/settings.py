@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
+
+with open('/etc/config.json') as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7mn9!wgg^k0@h6*dzgjgsr%gwuh*(2++y3n)qz68-5d@7t2o8&'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['kczan.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['172.104.247.221']
 
 
 # Application definition
@@ -120,16 +124,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "/tasks/static/tasks/"),
-    os.path.join(BASE_DIR, "/users/static/users/"),
+    '/home/kczan/Todo_Django/tasks/static/tasks/',
+    '/home/kczan/Todo_Django/users/static/users/',
 ]
 
-STATIC_ROOT = '/home/kczan/Todo_Django/static'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -145,5 +147,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.environ.get("TODO_GMAIL_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("TODO_GMAIL_PASSWORD")
+EMAIL_HOST_USER = config.get("TODO_GMAIL_USER")
+EMAIL_HOST_PASSWORD = config["TODO_GMAIL_PASSWORD"]
