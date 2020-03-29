@@ -29,7 +29,7 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['172.104.247.221','www.kczan.pl']
+ALLOWED_HOSTS = ['172.104.247.221','www.kczan.pl','kczan.pl']
 
 
 # Application definition
@@ -148,4 +148,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = config.get("TODO_GMAIL_USER")
-EMAIL_HOST_PASSWORD = config["TODO_GMAIL_PASSWORD"]
+EMAIL_HOST_PASSWORD = config.get("TODO_GMAIL_PASSWORD")
