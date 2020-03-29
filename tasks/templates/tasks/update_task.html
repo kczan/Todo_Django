@@ -4,7 +4,8 @@
 <div class="new-task-column">
   <form method="POST"> {% csrf_token %}
     <span class="update-task-layout">
-      {{ form.as_table }}
+      {{ form.title }}
+      {{ form.completed }}
       <input class="submit" type="submit" name="Update item">
     </span>
   </form>
