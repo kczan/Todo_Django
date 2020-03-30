@@ -29,7 +29,7 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['172.104.247.221','www.kczan.pl','kczan.pl']
+ALLOWED_HOSTS = ['172.104.247.221', 'www.kczan.pl', 'kczan.pl']
 
 
 # Application definition
