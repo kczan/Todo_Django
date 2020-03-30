@@ -142,6 +142,25 @@ a{
 	transition: 0.5s;
 }
 
+.delete-submit{
+	background-color: #6BA3E8;
+	margin-top: 15px;
+	width: auto;
+	border: 2px solid #3498db;
+	border-radius: 24px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1rem;
+	padding: 12px 20px;
+	cursor: pointer;
+	transition: 0.5s;
+
+}
+
+.delete-submit:hover{
+	background-color: rgb(139, 180, 230);
+	transition: 0.5s;
+}
+
 .edit_button:hover{
 	background-color: rgb(139, 180, 230);
 	transition: 0.5s;

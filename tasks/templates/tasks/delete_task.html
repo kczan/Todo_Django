@@ -7,8 +7,8 @@
     <span>
       <form method="POST"> {% csrf_token %}
         <div class="del_upd_container">
-                <input class="single-upd-container" type="submit" value="Yes">
-                <a class="single-del-container" href="{% url 'list' %}">No</a>
+                <input class="delete-submit" type="submit" value="Yes">
+                <a class="delete-submit" href="{% url 'list' %}">No</a>
             </div>
       </form>
     </span>
