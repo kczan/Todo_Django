@@ -1,1 +1,1 @@
-live version: http://kczan.pythonanywhere.com/list/home
+live version: http://kczan.pl/list
