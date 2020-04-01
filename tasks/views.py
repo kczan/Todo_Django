@@ -1,10 +1,18 @@
+"""
+Module handling views of tasks app
+"""
+
 from django.shortcuts import render, redirect
-from .forms import *
 from django.contrib.auth.decorators import login_required
+from .forms import TaskForm, TaskEditForm
+from .models import Task
 
 
 @login_required
 def list_homepage(request):
+    """
+    Function handling list page
+    """
     tasks = Task.objects.filter(author=request.user.username)
 
     form = TaskForm()
@@ -28,6 +36,9 @@ def list_homepage(request):
 
 @login_required
 def update_task(request, pk):
+    """
+    Function handling update task page
+    """
     task = Task.objects.get(id=pk)
     form = TaskEditForm(instance=task)
 
@@ -45,6 +56,9 @@ def update_task(request, pk):
 
 @login_required
 def delete_task(request, pk):
+    """
+    Function handling delete task page
+    """
     task = Task.objects.get(id=pk)
 
     if request.method == 'POST':

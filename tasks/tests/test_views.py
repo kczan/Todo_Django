@@ -1,27 +1,8 @@
-from django.test import SimpleTestCase, TestCase, Client
+from django.test import TestCase, Client
 from django.urls import resolve, reverse
-from tasks.views import list_homepage, update_task, delete_task
 from django.contrib.auth.models import User
 from django.contrib import auth
 from ..models import Task
-
-
-# class TestViews(SimpleTestCase):
-#
-#     def test_list(self):
-#         resolver = resolve('/list/')
-#         print(resolver)
-#         self.assertEqual(resolver.func, list_homepage)
-#
-#     def test_update(self):
-#         resolver = resolve('/list/update_task/')
-#         print(resolver)
-#         self.assertEqual(resolver.func, update_task)
-#
-#     def test_delete(self):
-#         resolver = resolve('/list/delete_task/')
-#         print(resolver)
-#         self.assertEqual(resolver.func, delete_task)
 
 
 class TestNotLoggedInViews(TestCase):
@@ -70,4 +51,3 @@ class TestLoggedInViews(LoggedInTestCase):
         response = self.client.get(reverse('delete_task', args=[1]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'tasks/delete_task.html')
-
