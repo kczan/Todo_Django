@@ -1,8 +1,7 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.urls import reverse, resolve
 from django.contrib.auth.models import User
 from django.contrib import auth
-from todo import views as main_views
 
 
 class TestViews(TestCase):
@@ -69,7 +68,3 @@ class TestLoggedInViews(LoggedInTestCase):
         resolver = resolve(reverse('profile'))
         self.assertEqual(resolver.view_name, 'profile')
         self.assertTemplateUsed(response, 'users/profile.html')
-
-
-
-

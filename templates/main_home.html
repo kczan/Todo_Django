@@ -6,14 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'tasks/styles.css' %}">
   <link rel="icon" type="image/png" href="{% static 'images/icon.png'  %}">
 
+
 </head>
 <body>
-  <ul>
-    <li><a href="/list/home">List</a></li>
+  <header class='navbar'>
+    <a href="{% url 'home' %}"><img class='logo' src="{% static 'images/websitelogo.png' %}" alt=""></a>
+        <div class='sites_section'>
+          <ul class='nav-links'>
+            <li><a href="{% url 'list' %}">Todo List</a></li>
+          </ul>
+        </div>
+        <div class='login_section'>
+          <ul class='nav-links'>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>            
+              <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+              <li><a href="{% url 'register' %}">Register</a></li>
+              <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      
+  </header>
+<div class='content-wrap'>
+  <div class='main-page-content'>
+    <div class='personal-info-block'>
+      <div class='personal-info-text'>
+        <h1>
+          Filip Chrzan
+        </h1>
+        <p>
+          Self-taught developer.
+        </p>
+      </div>
+      <div class='personal-info-photo'>
+        <img class='profile-picture' src="{% static 'images/PROFILOWE.jpg/' %}" alt="">
+      </div>
+    </div>
+    <div class='projects-main-title'>
+      <h3>Personal projects</h3>
+    </div>
 
-  </ul>
+    <div class='projects-block'>
+
+      <div class='projects-project'>
+        <div class='projects-title'>
+          <h4>Django based todo list.</h4>
+        </div>
+        <div class='projects-content'>
+          <div class='projects-description'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus, neque quam voluptatum voluptas laudantium fugit iste possimus totam, a, aliquid impedit quod earum? Qui modi illum repellendus. Placeat, saepe?</p>
+          </div>
+
+          <div class='projects-thumbnail-block'>
+            <img class='projects-thumbnail-image' src="{% static 'images/thumbnail.png/' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
