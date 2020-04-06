@@ -3,36 +3,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ page_title }}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'tasks/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'tasks/menu.css' %}">
   <link rel="icon" type="image/png" href="{% static 'images/icon.png'  %}">
 
 
 </head>
 <body>
-  <header class='navbar'>
-    <a href="{% url 'home' %}"><img class='logo' src="{% static 'images/websitelogo.png' %}" alt=""></a>
-        <div class='sites_section'>
-          <ul class='nav-links'>
-            <li><a href="{% url 'list' %}">Todo List</a></li>
-          </ul>
-        </div>
-        <div class='login_section'>
-          <ul class='nav-links'>
-            {% if user.is_authenticated %}
-              <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>            
-              <li><a href="{% url 'logout' %}">Log Out</a></li>
-            {% else %}
-              <li><a href="{% url 'register' %}">Register</a></li>
-              <li><a href="{% url 'login' %}">Log In</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      
-  </header>
+  <div class='menu-container'>
+    <nav class='menu-navbar'>
+      <div class='menu-hamburger'>
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+      <ul class="menu-nav-list">
+        <li class="menu-nav-item">
+          <a href="{% url 'home' %}" class="menu-nav-link">Home</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="{% url 'list' %}" class="menu-nav-link">To-do</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="#" class="menu-nav-link">About</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="#" class="menu-nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="menu-navbar-right">
+      {% if user.is_authenticated %}
+        <img class="profile-menu" src="{{ user.profile.image.url }}" alt="">
+      {% else %}
+        <img class="profile-menu profile-picture small-picture" src="{% static 'images/icon.png' %}" alt="">
+      {% endif %}
+      <ul class="menu-nav-list-right">
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}" class="menu-nav-link-right">{{ user.username }}</a></li>            
+          <li><a href="{% url 'logout' %}" class="menu-nav-link-right">LogOut</a></li>
+        {% else %}
+          <li><a href="{% url 'register' %}" class="menu-nav-link-right">Register</a></li>
+          <li><a href="{% url 'login' %}" class="menu-nav-link-right">Log In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+
+
 <div class='content-wrap'>
   <div class='main-page-content'>
     <div class='personal-info-block'>
@@ -90,5 +113,6 @@
       </a>
     </div>
   </footer>
+  <script src="{% static 'menu.js' %}"></script>
 </body>
 </html>
