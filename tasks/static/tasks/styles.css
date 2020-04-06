@@ -315,10 +315,11 @@ footer.navbar{
   object-fit: cover;
 }
 
-.small-picture{
-	width: 75px;
-	height: 75px;
-	border-radius: 50%;
+.main-profile-picture {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
@@ -465,7 +466,7 @@ footer.navbar{
 }
 
 .projects-content{
-	display: inherit;
+	display: flex;
 }
 
 @media (max-width: 600px){
@@ -479,5 +480,32 @@ footer.navbar{
 
 	.logo{
 		width: 20vw;
+	}
+}
+
+@media (max-width: 600px){
+	.projects-block{
+		width: 70vw;
+	}
+
+	.projects-project{
+		width: 65vw;
+	}
+
+	.main-page-content{
+		width: 80vw;
+	}
+	
+	.projects-content{
+		flex-wrap: wrap;
+	}
+
+	.content-section{
+		width: 70vw;
+	}
+
+	.profile-picture{
+		width: 80px;
+  	height: 80px;
 	}
 }
