@@ -40,7 +40,7 @@
       {% if user.is_authenticated %}
         <img class="profile-menu" src="{{ user.profile.image.url }}" alt="">
       {% else %}
-        <img class="profile-menu profile-picture small-picture" src="{% static 'images/register.png' %}" alt="">
+        <img class="profile-menu" src="{% static 'images/register.png' %}" alt="">
       {% endif %}
       <ul class="menu-nav-list-right">
         {% if user.is_authenticated %}
