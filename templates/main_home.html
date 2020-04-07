@@ -3,17 +3,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'tasks/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'tasks/menu.css' %}">
   <link rel="icon" type="image/png" href="{% static 'images/icon.png'  %}">
+
 
 </head>
 <body>
-  <ul>
-    <li><a href="/list/home">List</a></li>
+  <div class='menu-container'>
+    <nav class='menu-navbar'>
+      <div class='menu-hamburger'>
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+      <ul class="menu-nav-list">
+        <li class="menu-nav-item">
+          <a href="{% url 'home' %}" class="menu-nav-link">Home</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="{% url 'list' %}" class="menu-nav-link">To-do</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="#" class="menu-nav-link">About</a>
+        </li>
+        <li class="menu-nav-item">
+          <a href="#" class="menu-nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="menu-navbar-right">
+      {% if user.is_authenticated %}
+        <img class="profile-menu" src="{{ user.profile.image.url }}" alt="">
+      {% else %}
+        <img class="profile-menu" src="{% static 'images/register.png' %}" alt="">
+      {% endif %}
+      <ul class="menu-nav-list-right">
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}" class="menu-nav-link-right">{{ user.username }}</a></li>            
+          <li><a href="{% url 'logout' %}" class="menu-nav-link-right">LogOut</a></li>
+        {% else %}
+          <li><a href="{% url 'register' %}" class="menu-nav-link-right">Register</a></li>
+          <li><a href="{% url 'login' %}" class="menu-nav-link-right">Log In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
 
-  </ul>
+
+
+<div class='content-wrap'>
+  <div class='main-page-content'>
+    <div class='personal-info-block'>
+      <div class='personal-info-text'>
+        <h2>
+          Filip Chrzan
+        </h2>
+        <p>
+          Self-taught developer.
+        </p>
+      </div>
+      <div class='personal-info-photo'>
+        <img class='main-profile-picture' src="{% static 'images/PROFILOWE.jpg' %}" alt="">
+      </div>
+    </div>
+    <div class='projects-main-title'>
+      <h3>Personal projects</h3>
+    </div>
+
+    <div class='projects-block'>
+
+      <div class='projects-project'>
+        <div class='projects-title'>
+          <h4>Django based todo list.</h4>
+        </div>
+        <div class='projects-content'>
+          <div class='projects-description'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus, neque quam voluptatum voluptas laudantium fugit iste possimus totam, a, aliquid impedit quod earum? Qui modi illum repellendus. Placeat, saepe?</p>
+          </div>
+
+          <div class='projects-thumbnail-block'>
+            <img class='projects-thumbnail-image' src="{% static 'images/thumbnail.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <footer class='navbar'>
+    <div class='social_middle'>
+      <a class="social_btn" href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a class="social_btn" href="#">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="social_btn" href="#">
+        <i class="fab fa-google"></i>
+      </a>
+      <a class="social_btn" href="#">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a class="social_btn" href="#">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </footer>
+  <script src="{% static 'menu.js' %}"></script>
 </body>
 </html>

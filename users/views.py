@@ -4,28 +4,30 @@ from .forms import UserCreateForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import password_validation
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 
 
 def register_user(request):
-
-    if request.method == 'POST':
-        user_form = UserCreateForm(request.POST)
-        if user_form.is_valid():
-            user_form.save()
-            username = user_form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('login')
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            user_form = UserCreateForm(request.POST)
+            if user_form.is_valid():
+                user_form.save()
+                username = user_form.cleaned_data.get('username')
+                messages.success(request, f'Account created for {username}!')
+                return redirect('login')
+            else:
+                print(user_form.errors)
         else:
-            print(user_form.errors)
-    else:
-        user_form = UserCreateForm()
-    context = {
-        'user_form': user_form,
-        'page_title': 'Register new user',
-        'password1_help': password_validation.password_validators_help_text_html(),
-    }
-    return render(request, 'users/register.html', context)
+            user_form = UserCreateForm()
+        context = {
+            'user_form': user_form,
+            'page_title': 'Register new user',
+            'password1_help': password_validation.password_validators_help_text_html(),
+        }
+        return render(request, 'users/register.html', context)
+    return redirect('home')
 
 
 @login_required

@@ -1,21 +1,27 @@
+"""
+Module handling views of tasks app
+"""
+
 from django.shortcuts import render, redirect
-from .forms import *
 from django.contrib.auth.decorators import login_required
+from .forms import TaskForm, TaskEditForm
+from .models import Task
 
 
 @login_required
 def list_homepage(request):
+    """
+    Function handling list page
+    """
     tasks = Task.objects.filter(author=request.user.username)
 
-    for task in tasks:
-        if "['" and "']" in task.title:
-            task.title = task.title[2:-2]       # CharField returns a string that is looking like one-element list. Have no idea why yet.
-                                                # try using form instead of modelform.
     form = TaskForm()
     if request.method == 'POST':
-        form = TaskForm({**request.POST, **{'author': request.user.username}})
+        form = TaskForm(request.POST)
         if form.is_valid():
-            form.save()
+            obj = form.save(commit=False)
+            obj.author = request.user
+            obj.save()
         else:
             print(form.errors)
         return redirect('/list/home')
@@ -30,11 +36,14 @@ def list_homepage(request):
 
 @login_required
 def update_task(request, pk):
+    """
+    Function handling update task page
+    """
     task = Task.objects.get(id=pk)
-    form = TaskForm(instance=task)
+    form = TaskEditForm(instance=task)
 
     if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
+        form = TaskEditForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
             return redirect('../..')
@@ -47,6 +56,9 @@ def update_task(request, pk):
 
 @login_required
 def delete_task(request, pk):
+    """
+    Function handling delete task page
+    """
     task = Task.objects.get(id=pk)
 
     if request.method == 'POST':
