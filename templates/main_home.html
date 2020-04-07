@@ -14,6 +14,7 @@
 
 </head>
 <body>
+
   <div class='menu-container'>
     <nav class='menu-navbar'>
       <div class='menu-hamburger'>
@@ -56,70 +57,76 @@
 
 
 
-<div class='content-wrap'>
-  <div class='main-page-content'>
-    <div class='personal-info-block'>
-      <div class='personal-info-text'>
-        <h2>
-          Filip Chrzan
-        </h2>
-        <p>
-          Self-taught developer.
-        </p>
-      </div>
-      <div class='personal-info-photo'>
-        <img class='main-profile-picture' src="{% static 'images/PROFILOWE.jpg' %}" alt="">
-      </div>
-    </div>
-    <div class='projects-main-title'>
-      <h3>Personal projects</h3>
-    </div>
-
-    <div class='projects-block'>
-
-      <div class='projects-project'>
-        <div class='projects-title'>
-          <h4>Django based todo list.</h4>
+  <div class='content-wrap'>
+    <div class='main-page-content'>
+      <div class='personal-info-block'>
+        <div class='personal-info-text'>
+          <h2>
+            Filip Chrzan
+          </h2>
+          <p>
+            Self-taught developer.
+          </p>
         </div>
-        <div class='projects-content'>
-          <div class='projects-description'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus, neque quam voluptatum voluptas laudantium fugit iste possimus totam, a, aliquid impedit quod earum? Qui modi illum repellendus. Placeat, saepe?</p>
-          </div>
+        <div class='personal-info-photo'>
+          <img class='main-profile-picture' src="{% static 'images/PROFILOWE.jpg' %}" alt="">
+        </div>
+      </div>
+      <div class='projects-main-title'>
+        <h3>Personal projects</h3>
+      </div>
 
-          <div class='projects-thumbnail-block'>
-            <img class='projects-thumbnail-image' src="{% static 'images/thumbnail.png' %}" alt="">
+      <div class='projects-block'>
+
+        <div class='projects-project'>
+          <div class='projects-title'>
+            <h4>Django based todo list.</h4>
+          </div>
+          <div class='projects-content'>
+            <div class='projects-description'>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus, neque quam voluptatum voluptas laudantium fugit iste possimus totam, a, aliquid impedit quod earum? Qui modi illum repellendus. Placeat, saepe?</p>
+            </div>
+
+            <div class='projects-thumbnail-block'>
+              <img class='projects-thumbnail-image' src="{% static 'images/thumbnail.png' %}" alt="">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <div class='dark-switch'>
+    <label class='check-label'>
+      <input type="checkbox" name="" id="dark-mode-button">
+      <span class="check"></span>
+      <span class="btn"></span>
+    </label>
+    <p class='dark-mode-text'>Dark Mode</p>
+  </div>
   <footer class='navbar'>
     <div class='social_middle'>
-      <a class="social_btn" href="#">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-google"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-youtube"></i>
-      </a>
+      <span class='social-span'>
+        <a class="social_btn" href="http://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="social_btn" href="http://www.twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="social_btn" href="http://www.google.com" target="_blank"> 
+          <i class="fab fa-google"></i>
+        </a>
+        <a class="social_btn" href="http://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="social_btn" href="http://www.youtube.com" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </span>
+      
     </div>
-    <div class='social-dark-switch'>
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="check"></span>
-        <span class="btn"></span>
-      </label>
-    </div>
+    
   </footer>
   <script src="{% static 'menu.js' %}"></script>
+  <script src="{% static 'darkmode_home.js' %}"></script>
 </body>
 </html>

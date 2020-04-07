@@ -68,26 +68,38 @@
     {% block content %}
     {% endblock content %}
   </div>
- 
+  <div class='dark-switch'>
+    <label class='check-label'>
+      <input type="checkbox" name="" id="dark-mode-button">
+      <span class="check"></span>
+      <span class="btn"></span>
+    </label>
+    <p class='dark-mode-text'>Dark Mode</p>
+  </div>
   <footer class='navbar'>
     <div class='social_middle'>
-      <a class="social_btn" href="#">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-google"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a class="social_btn" href="#">
-        <i class="fab fa-youtube"></i>
-      </a>
+      <span class='social-span'>
+        <a class="social_btn" href="http://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="social_btn" href="http://www.twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="social_btn" href="http://www.google.com" target="_blank"> 
+          <i class="fab fa-google"></i>
+        </a>
+        <a class="social_btn" href="http://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="social_btn" href="http://www.youtube.com" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </span>
+      
     </div>
+    
   </footer>
   <script src="{% static 'menu.js' %}"></script>
+  <script src="{% static 'darkmode_users.js' %}"></script>
 </body>
 </html>
