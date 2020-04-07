@@ -1,10 +1,10 @@
 live version: http://kczan.pl/
 
 This project was created using:
--Python
--Django
--HTML5/CSS3
--JS
+  *Python
+  *Django
+  *HTML5/CSS3
+  *JS
 
 It was deployed using Linode and Apache2 HTTP Server.
 
