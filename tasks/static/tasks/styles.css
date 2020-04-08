@@ -571,7 +571,7 @@ footer.navbar{
 content: '';
 position: absolute;
 top: calc(50% - 4px);
-left: -25px;
+left: -20px;
 width: 4px;
 height: 4px;
 border-radius: 50%;
@@ -593,7 +593,7 @@ box-shadow: 0 0 5px #f00,
 	content: '';
 	position: absolute;
 	top: calc(50% - 4px);
-	right: -25px;
+	right: -20px;
 	width: 4px;
 	height: 4px;
 	border-radius: 50%;
