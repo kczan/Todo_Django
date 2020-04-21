@@ -537,6 +537,11 @@ footer.navbar{
 		width: 80px;
   	height: 80px;
 	}
+
+	.projects-thumbnail-block{
+	  max-width: 100%;
+	}
+
 }
 
 
